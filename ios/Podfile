@@ -1,0 +1,71 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '10.0'
+
+target 'Bingo' do
+  config = use_native_modules!
+
+  use_react_native!(:path => config["reactNativePath"])
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+  pod 'RNScreens', :path => '../node_modules/react-native-screens'
+
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
+  pod 'RNShare', :path => '../node_modules/react-native-share'
+
+  pod 'react-native-view-shot', :path => '../node_modules/react-native-view-shot'
+
+  pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
+
+
+  pod 'TouchID', :path => '../node_modules/react-native-touch-id'
+
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
+
+  pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
+
+  pod 'TextToSpeech', :path => '../node_modules/react-native-tts'
+
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
+  pod 'QrCode', :path => '../node_modules/react-native-qr-decode-image-camera'
+
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
+  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
+
+  pod 'RNSound', :path => '../node_modules/react-native-sound'
+
+  
+
+  target 'BingoTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  # Enables Flipper.
+  #
+  # Note that if you have use_frameworks! enabled, Flipper will not work and
+  # you should disable these next few lines.
+  use_flipper!
+  post_install do |installer|
+    flipper_post_install(installer)
+  end
+end
+
+target 'Bingo-tvOS' do
+  # Pods for Bingo-tvOS
+
+  target 'Bingo-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+end
